@@ -602,7 +602,8 @@ def obtenir_fait():
     if len(faits_utilises) == len(faits):
         faits_utilises = []
 
-    fait = random.sample(set(faits) - set(faits_utilises), 1)[0]
+    faits_disponibles = list(set(faits) - set(faits_utilises)) # Convertir en liste
+    fait = random.sample(faits_disponibles, 1)[0]  # Utiliser la liste
     faits_utilises.append(fait)
     return fait
 
